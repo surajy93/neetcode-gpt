@@ -1,57 +1,33 @@
-# My GPT — Built from Scratch
+# NeetCode ML Course Exercises
 
-> Assembled from the NeetCode ML course on [NeetCode.io](https://neetcode.io)
-> Built by **Suraj Yadav** on May 20, 2026
+This repository contains selected Python exercises from the [NeetCode Machine Learning course](https://neetcode.io/practice?tab=coreSkills&topic=Machine+Learning). It is a learning repository, not a production AI application.
 
-Every file in this project is code I wrote and submitted while completing the NeetCode ML course.
-The problems progressively build from gradient descent fundamentals all the way to a working GPT.
+## Current status
 
-## Project Structure
+The repository is incomplete. The current checked-in files include selected neural-network exercises, package initializers, and a dependency list. They do **not** include the GPT model, transformer implementation, training script, or text-generation script described in an earlier version of this README. There is no verified end-to-end training or generation command at this revision.
 
-```
-model/          Attention, Transformer, GPT architecture
-  attention.py             Self-attention head
-  multi_head_attention.py  Multi-headed attention
-  transformer.py           Transformer block
-  gpt.py                   GPT model
-  normalization.py         Layer normalization
-  batch_normalization.py   Batch normalization
-  rms_normalization.py     RMS normalization
-  embeddings.py            Word embeddings
-  positional_encoding.py   Positional encoding
-  kv_cache.py              KV-Cache for fast inference
-  grouped_query_attention.py  Grouped query attention
+The `foundations` and `model` package initializers also import modules that are not present in the current repository. As a result, importing these packages as a whole is not currently a supported quick start.
 
-data/           Data pipeline
-  tokenizer.py                BPE tokenizer
-  vocab.py                    Character-level vocabulary
-  loader.py                   Batched training data loader
-  dataset.py                  GPT dataset preparation
-  nlp_preprocessing.py        NLP preprocessing
-  tokenizer_utils.py          Tokenization edge cases
+## Repository contents
 
-train.py        GPT training loop
-generate.py     Text generation
+- `foundations/gradient_descent.py` — gradient descent for the scalar objective \(f(x) = x^2\).
+- `foundations/activations.py` — NumPy implementations of sigmoid and ReLU.
+- `data/` and `model/` — package initializers that reference course modules; most referenced modules are not currently checked in.
+- `requirements.txt` — listed Python dependencies: PyTorch, NumPy, and torchtyping.
 
-foundations/    Neural network primitives built from scratch
-  neuron.py, backprop.py, mlp.py, activations.py, loss.py,
-  training_loop.py, dead_relu_detector.py, ...
-```
+## Environment setup
 
-## Quick Start
+To create an isolated environment and install the listed dependencies:
 
 ```bash
-pip install -r requirements.txt
-python train.py
-python generate.py
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
 
-## Course
+Installing dependencies does not make the incomplete model or training pipeline runnable. No training, inference, evaluation, or deployment results are claimed by this repository.
 
-This project was built by completing the [NeetCode ML Course](https://neetcode.io/practice?tab=coreSkills&topic=Machine+Learning):
-- Math Foundations (gradient descent, activations, loss functions)
-- Neural Networks from scratch (neuron, backprop, MLP)
-- PyTorch fundamentals
-- NLP pipeline (embeddings, tokenization, attention)
-- Transformer architecture
-- GPT model + text generation
+## Learning context
+
+The work comes from completing course exercises covering optimization, neural-network fundamentals, and language-model concepts. The course is the source of the exercises; this repository is not an independently designed or production-tested GPT system.
